@@ -1,0 +1,63 @@
+<!--pages/admin/admin.wxml-->
+<page-meta>
+    <navigation-bar
+        title="{{nbTitle}}"
+        loading="{{nbLoading}}"
+        front-color="{{nbFrontColor}}"
+        background-color="{{nbBackgroundColor}}"
+        color-animation-duration="2000"
+        color-animation-timing-func="easeIn"
+    />
+</page-meta>
+<wxs module="m1">
+    var chuangeFontSize = function(nameStr) {
+        var l = (nameStr+'').length
+        // console.log(nameStr+':'+l)
+        var ret = 100
+        if(l>6){
+            ret = 50
+        }
+        return ret+'%';
+    }
+    module.exports.chuangeFontSize = chuangeFontSize;
+</wxs>
+<view hidden="{{inputDlghidden}}">
+        <intputdlg  bind:hiddenInputDlg="hiddenInputDlg" title="修改邀请码" fundAcc="{{dlgFundAcc}}" name="{{dlgRealName}}" inputInvitationCode="{{dlgInvitationCode}}"/>
+</view>
+<view class="container">
+    <view class="top">
+        <text>湘源投资-投资者管理</text>
+    </view>
+    <view class="search">
+            <image class="ico" src="{{searchUrl}}"></image>
+            <input class="input" type="text" placeholder="请输入投资者姓名" bindinput="bindInput" bindconfirm="bindConfirm" />
+    </view>
+    <scroll-view scroll-y="true">
+        <block wx:for="{{investorList}}" wx:for-item="item" wx:for-index='idx'>
+            <view class="item" hidden="{{item.isHidden}}">
+                <view class="fund-block item-block">
+                    <text class="label-block">{{fundLabel}}</text>
+                    <text class="value-block">{{item.fundAcc}}</text>
+                </view>
+                <view class="name-block item-block">
+                    <text class="label-block">{{nameLabel}}</text>
+                    <text class="value-block" style="font-size:{{m1.chuangeFontSize(item.realName)}};">{{item.realName}}</text>
+                </view>
+                <view class="code-block item-block">
+                    <text class="label-block">{{codeLabel}}</text>
+                    <text class="value-block">{{item.invitationCode}}</text>
+                </view>
+                <view class="used-block item-block">
+                    <text class="label-block" >{{usedLabel}}</text>
+                    <image class="ico value-block"  wx:if="{{item.used}}" src="{{usedUrl}}"/>
+                </view>
+                <view  class="modify-block item-block ">
+                    <image class="ico" src="{{modifyUrl}}" bindtap="bindTapModify" data-idx="{{idx}}"></image>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+    <view>
+        <button class="exitButton" type="warn" bindtap="exitPage">退出</button>
+    </view>
+</view>

@@ -1,0 +1,115 @@
+<!--pages/record/record.wxml-->
+<page-meta>
+    <navigation-bar
+        title="{{nbTitle}}"
+        loading="{{nbLoading}}"
+        front-color="{{nbFrontColor}}"
+        background-color="{{nbBackgroundColor}}"
+        color-animation-duration="2000"
+        color-animation-timing-func="easeIn"
+    />
+</page-meta>
+<wxs module="m1">
+    var turnToDateStr = function(dateInt) {
+        var day = dateInt%100 + ''
+        var month = Math.floor(dateInt/100)%100 + ''
+        var year = Math.floor(dateInt/10000) + ''
+        var str = year+'-'+month+'-'+day
+        return str;
+    }
+    var isHidden = function(dateInt,startdate,enddate,product1,product2){
+        var ret = false
+        // console.log('isHidden')
+        if(startdate!='全部'&&enddate!='全部'){
+            startdate = startdate+''
+            enddate = enddate+''
+            start = startdate.substring(0,4) * 10000 + startdate.substring(5,7) * 100 + startdate.substring(8,10) * 1
+            end = enddate.substring(0,4) * 10000 + enddate.substring(5,7) * 100 + enddate.substring(8,10) * 1
+            console.log('start'+start)
+            console.log('end'+end)
+            if(dateInt<start || dateInt>end){
+                ret = true
+            }
+        }
+        if(ret==false && product2!='全部' && product1!=product2){
+            ret = true
+        }
+        // console.log(ret)
+        return ret
+    }
+    module.exports.turnToDateStr = turnToDateStr;
+    module.exports.isHidden = isHidden;
+
+</wxs>
+
+<view class="container">
+    <!-- <image  class="construction-png" src="/resource/ico/construction.png"/>
+    <view class="text">
+        <text>功能更新中,敬请期待...</text>
+    </view> -->
+    <view class="top-tabel">
+        <view class="top-tabel-1">
+
+                <text>时间选择：</text>
+                <picker mode="date" value="{{dateValue1}}" start="1999-01-01" end="2999-12-12" bindchange="datePickerBindchange1">
+                    {{dateValue1}}
+                </picker>
+                <text decode="true">&ensp;&ensp;~&ensp;&ensp;</text>
+                <picker mode="date" value="{{dateValue2}}" start="1999-01-01" end="2999-12-12" bindchange="datePickerBindchange2">
+                    {{dateValue2}}
+                </picker>
+         
+        </view>
+        <view class="top-tabel-2">
+            <view>
+                <view>
+                    <text>产品选择：</text>
+                </view>
+                <picker mode="selector" header-text="选择产品" range="{{productList}}"  bindchange="productPickerBindChange">
+                    {{productValue}}
+                </picker>
+            </view>
+            <view class="select-button bubble" bindtap="refreshList">全选</view>
+        </view>
+    </view>
+    <scroll-view scroll-y="true">
+        <block wx:for="{{tradeRecordList}}" wx:for-item="item">
+            <view class="trade-list-item" hidden="{{m1.isHidden(item.businDate,dateValue1,dateValue2,item.productName,productValue)}}" >
+                <view class="item-line1">{{m1.turnToDateStr(item.businDate)}}</view>
+                <view class="item-line2">
+                    <view class="item-name">
+                        <text>{{item.productName}}</text>
+                        <text class="code-color">({{item.productNo}})</text>
+                    </view>
+                    <view class="value-weight">{{item.businFlag}}</view>
+                    <view class="seller-logo">
+                        <text wx:if="{{item.dealerAcc==='管理人直销'}}">直</text>
+                        <text wx:else>代</text>
+                    </view>
+                </view>
+                <view class="item-line3">
+                    <view class="item-value">
+                        <view class="label-small">份额：<text class="value-weight">{{item.confirmNum}}</text></view>
+                        <view class="label-small">金额：<text class="value-weight">{{item.confirmBalance}}</text></view>
+                        <!-- <block wx:if="{{item.requestBalance === 0.0}}">
+                            <text class="label-small">份额：</text>
+                            <text class="value-weight">{{item.confirmNum}}</text>
+                        </block>
+                        <block wx:else>
+                            <text class="label-small">金额：</text>
+                            <text class="value-weight">{{item.confirmBalance}}</text>
+                        </block> -->
+                    </view>
+                    <view class="item-nav">
+                        <text class="label-small">净值：</text>
+                        <text  class="value-weight">{{item.confirmNav}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <!-- <view>
+            <text class="label-small item-line1">总数：{{tradeRecordList.length}}</text>
+        </view> -->
+    </scroll-view>
+
+</view>

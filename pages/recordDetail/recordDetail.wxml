@@ -1,0 +1,15 @@
+<!--pages/recordDetail/recordDetail.wxml-->
+
+<view class="container">
+    <view class="block1">
+        
+    </view>
+    <view class="block2">
+    </view>
+    <view class="block3">
+    </view>
+    <view class="block4">
+    </view>
+    <view class="button-block">
+    </view>
+</view>

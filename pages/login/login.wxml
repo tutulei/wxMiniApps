@@ -1,0 +1,23 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+    <view class="upperPart">
+        <view class="favourite">
+            <image src="/resource/ico/favourite.png"></image>
+        </view>
+        <view class='welcome'>
+            <text>欢迎登录</text>
+        </view>
+        <view animation="{{ani}}" style="opacity: 0;">
+            <input class="input" type="text" placeholder="请输入邀请码" bindinput="codeInput" disabled="{{isHidden}}" value="{{inputValue}}"/>
+        </view>
+    </view>
+
+    <view class="lowerHalf">
+        <button class="button" catchtap="login" type="primary" disabled="{{buttonDisabled}}">{{buttonText}}</button>
+        <view class="button2" bindtap="changeBindInput">{{button2Text}}</view>
+    </view>
+    
+    <!-- <view hidden="{{inputDlghidden}}">
+        <intputdlg2  bind:hiddenInputDlg="hiddenInputDlg" title="修改邀请码" fundAcc="{{dlgFundAcc}}" name="{{dlgRealName}}" inputInvitationCode="{{dlgInvitationCode}}"/>
+    </view> -->
+</view>

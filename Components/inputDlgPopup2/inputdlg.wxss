@@ -1,0 +1,103 @@
+/* pages/inputDlgPopup/inputdlg.wxss */
+/* page{
+    width: 200rpx;
+    height: 200rpx;
+    background: rgba(255, 72, 72, 0.5);
+} */
+.mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: whitesmoke;
+    z-index: 99;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+}
+.inputDlg{
+    position: fixed;
+    width: 70%;
+    /* height: 200rpx; */
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #ffffff;
+    border-radius: 10rpx;
+    border: 1rpx solid whitesmoke;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    box-shadow: 1rpx 1rpx 20rpx 1rpx gray;
+}
+.title{
+    padding: 20rpx;
+    text-align: center;
+    border-bottom:1rpx solid whitesmoke;
+}
+.dlg-button{
+    display: flex;
+    justify-content: space-around;
+}
+.cancel-btn,.confirm-btn{
+    padding: 20rpx;
+    width: 100%;
+    text-align: center;
+    border: 1px solid whitesmoke;
+}
+.confirm-btn{
+    color: green;
+}
+
+@keyframes press{
+    0%{background-color: white;}
+    70% {background-color: darkcyan;}
+    100%{background-color: white;}
+}
+.confirm-btn:active{
+    animation:press 1s 
+}
+.dlg-content{
+    text-align: center;
+}
+.content-label{
+    margin: 20rpx auto;
+}
+.import{
+    font-size: 70%;
+    color: red;
+    width: 80%;
+    margin: 10rpx auto;
+}
+.content-input{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 40rpx;
+}
+.invitation-view{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.invitation-view>text{
+    margin: auto 0;
+}
+.input{
+    margin: 20rpx;
+    border: 1rpx solid gray;
+    border-radius: 10rpx;
+    width: 50%;
+    height: 50rpx;
+}
+.adminInput{
+    margin: 10rpx auto;
+}
+.ico{
+    width: 40rpx;
+    height: 40rpx;
+    margin: auto 0;
+    padding: 10rpx;
+}

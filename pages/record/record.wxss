@@ -1,0 +1,122 @@
+/* pages/record/record.wxss */
+
+Page{
+    height: 100%;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+picker{
+    height: 20%;
+    color: grey;
+}
+.select-button{
+    border: 1rpx solid grey;
+    color: grey;
+    margin-right: 20rpx;
+}
+.bubble{ 
+    position: relative;
+    overflow: hidden;
+   }
+.bubble:after{
+    content: "";
+    background: #999;
+    position: absolute; 
+    width: 750rpx;
+    height: 750rpx;
+    left: calc(50% - 375rpx);
+    top: calc(50% - 375rpx);
+    opacity: 0;
+    margin: auto;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all 0.4s ease-in-out;
+}
+.bubble:active:after {
+    transform: scale(0);
+    opacity: 1;
+    transition: 0s;
+}
+
+.top-tabel{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1rpx solid grey;
+}
+
+.top-tabel-1{
+    display: flex;
+    padding: 10rpx;
+    /* height: 5%; */
+    align-content: center;
+}
+.top-tabel-2>view{
+    display: flex;
+    align-content: center;
+}
+.top-tabel-2{
+    display: flex;
+    padding: 10rpx;
+    justify-content: space-between;
+}
+scroll-view{
+    height: 90%;
+}
+/* 
+.construction-png{
+    width: 280rpx;
+    height: 280rpx;
+    margin: 30% auto 0 auto;
+}
+.text{
+    margin: 10% auto 0 auto;
+} */
+
+.trade-list-item{
+    display: flex;
+    flex-direction: column;
+    margin: 20rpx 0;
+    padding: 10rpx;
+    background-color: rgb(255, 210, 167);
+    border-top: 1rpx solid burlywood;
+    border-bottom: 1rpx solid burlywood;
+}
+
+.item-line1,.item-line2,.item-line3{
+    display: flex;
+}
+.item-line1{
+    color: grey;
+    font-size: 80%;
+}
+.code-color{
+    color: red;
+}
+.item-line2{
+    justify-content: space-between;
+    font-size: 90%;
+}
+.seller-logo{
+    border:1rpx solid red;
+    color: red;
+    border-radius: 20%;
+    padding: 0 3rpx;
+}
+.item-line3{
+    margin: 10rpx 0;
+
+}
+.item-value{
+    width: 60%;
+}
+.label-small{
+    font-size: 80%;
+}
+.value-weight{
+    font-weight: 700;
+}
+

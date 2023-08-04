@@ -1,0 +1,60 @@
+/* pages/login/login.wxss */
+page{
+    height: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+page>view>view{
+    display: flex;
+    flex-direction: column;
+}
+
+.favourite{
+    margin: auto;
+    margin-top: 20%;
+    margin-bottom: 60rpx;
+}
+@keyframes slowshow{
+    from{color:white;}
+    to{color: tomato;}
+}
+
+.welcome{
+    margin: auto;
+    margin-bottom: 40rpx;
+    animation-name: slowshow;
+    animation-duration: 2s;
+    font-size: 60rpx;
+    color: tomato;
+}
+.input{
+    margin: 100rpx auto 20rpx auto;
+    border: 1rpx solid goldenrod;
+    border-radius: 10rpx;
+    height: 60rpx;
+    padding: 10rpx;
+    width: 60%;
+}
+.lowerHalf{
+    margin-bottom: 150rpx;
+}
+
+.favourite>image{
+    border-radius: 50%;
+    width: 300rpx;
+    height: 250rpx;
+    justify-content: center;
+}
+.button2{
+    text-decoration-line: underline;
+    font-size: 100%;
+    margin: auto;
+    margin-top: 240rpx;
+    color: grey;
+}
+

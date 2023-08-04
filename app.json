@@ -1,0 +1,54 @@
+{
+    "usingComponents": {
+        "intputdlg": "/Components/inputDlgPopup/inputdlg",
+        "intputdlg2": "/Components/inputDlgPopup2/inputdlg"
+    },
+    "pages": [
+        "pages/login/login",
+        "pages/Position/position",
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/myPage/my",
+        "pages/record/record",
+        "pages/admin/admin",
+        "pages/222/345",
+        "pages/positionDetail/positionDetail",
+        "pages/recordDetail/recordDetail"
+
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "color": "#7A7E83",
+        "selectedColor": "#fa9070",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "position": "bottom",
+        "list": [
+            {
+                "pagePath": "pages/Position/position",
+                "text": "我的持仓",
+                "iconPath": "/resource/ico/position.png",
+                "selectedIconPath": "/resource/ico/position_h.png"
+            },
+            {
+                "pagePath": "pages/record/record",
+                "text": "申赎记录",
+                "iconPath": "/resource/ico/record.png",
+                "selectedIconPath": "/resource/ico/record_h.png"
+            },
+            {
+                "pagePath": "pages/myPage/my",
+                "text": "我的",
+                "iconPath": "/resource/ico/user.png",
+                "selectedIconPath": "/resource/ico/user_h.png"
+            }
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+<!--Components/inputDlgPopup/inputdlg.wxml-->
+<view>
+    <view class="mask"></view>
+    <view class="inputDlg">
+        <!--drawer content-->
+        <view class="title">{{title}}</view>
+        <view class="dlg-content">
+            <view class="content-label">
+            <!-- 添加自定义的字符内容 -->
+                <view>{{content}}</view>
+                <view >基金账户：<text class="import">{{fundAcc}}</text></view>
+                <view >姓名：<text class="import">{{name}}</text></view>
+            </view>
+            <view class="content-input">
+            <!-- 添加自定义的输入框内容 -->
+                <view class="invitation-view">
+                    <text>邀请码:</text>
+                    <input class="input" type="text" placeholder="{{inputInvitationCode}}" bindinput="bindInputCode" value="{{inputInvitationCode}}"/>
+                    <image class="ico" src="{{refreshUrl}}" bindtap="refreshCode"></image>
+                </view>
+                <input class="input adminInput" type="text" bindinput="bindInputadmin" value="{{inputAdminCode}}" placeholder="请输入管理员码"/>
+            </view>
+        </view>
+        <view class="dlg-button">
+            <view class="cancel-btn" bindtap="closedlg">
+                <text>{{cancelTxt}}</text>
+            </view>
+            <view class="confirm-btn" bindtap="bindConfirm">
+                <text>{{confirmTxt}}</text>
+            </view>
+        </view>
+    </view>
+</view>

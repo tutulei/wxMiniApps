@@ -1,0 +1,57 @@
+/* pages/myPage/my.wxss */
+
+.wxinfo{
+    margin: auto;
+    padding: 100rpx 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.userinfo-avatar{
+    /* align-items: center; */
+    display: flex;
+    justify-content: center;
+}
+.avatar-image {
+    margin: auto;
+    overflow: hidden;
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+}
+
+.userinfo-nickname{
+    text-align: center;
+}
+.account-info{
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.account-info>view{
+    background-color: rgb(255, 245, 234);
+    margin: 20rpx 20rpx;
+    padding: 20rpx;
+}
+.invitation-view{
+    display: flex;
+    justify-content: space-between;
+}
+.invitation-button{
+    /* margin-left: 240rpx; */
+    padding: 0 4rpx;
+    border-radius: 10%;
+    text-decoration: underline;
+    border: 1rpx solid black;
+    border-bottom: 1rpx double black;
+}
+.invitation-str{
+    background-color: rgb(255, 229, 229);
+    padding: 0 5rpx;
+}
+.exitButton{
+    margin-top: 60rpx;
+}

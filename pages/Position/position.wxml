@@ -1,0 +1,126 @@
+<!--pages/Position/position.wxml-->
+<page-meta>
+    <navigation-bar
+        title="{{nbTitle}}"
+        loading="{{nbLoading}}"
+        front-color="{{nbFrontColor}}"
+        background-color="{{nbBackgroundColor}}"
+        color-animation-duration="2000"
+        color-animation-timing-func="easeIn"
+    />
+</page-meta>
+<view class="container">
+    <view class="top-text">
+        <view>请注意：本平台发布的所有数据仅供参考，不作对账凭证。资产与市值的计算方式为“参考净值x持仓份额”</view>
+    </view>
+    <view class="total-assets">
+        <view class="real-name-view">
+            <image class="refresh-ico ico" bindtap="refreshData" src="{{refreshScr}}"></image>
+            <text>{{realName}}</text>
+        </view>
+        <view class="assets-value">
+            <view>
+                <text class="assets-label">{{assetsLabelStr}}:</text>
+                <image class="ico" id="eyes" src="{{eyesSrc}}" hidden="True"/>
+            </view>
+            <view class="tvalue-view">
+                <text class="total-value">{{totalValue}}</text>
+                <!-- <text class="position-value-uint">{{valueUnit}}</text> -->
+                <image class="ico" id="info" src="{{infoSrc}}" bindtap="TotalValueInfoModal"/>
+            </view>
+        </view>
+    </view>
+    <view class="position-list">
+        <text class="list-name">{{listName}}</text>
+        <view class="line"/>
+        <scroll-view scroll-y="true">
+            <block wx:for="{{positionList}}" wx:for-item="item">
+                <view class="position-list-item" >
+                    <view class="item" bindtap="clickItem" data-index="{{index}}">
+                        <view class="felx-title">
+                            <view>
+                                <text class="item-name">{{item.agName}}</text>
+                                <text wx:if="{{item.code != ''}}" class="item-code">({{item.agCode}})</text>
+                                <image class="ico arrow" wx:if="{{item.son_hidden}}" src="{{arrowlrSrc}}"/>
+                                <image class="ico arrow" wx:else src="{{arrowlSrc}}"/>
+                            </view>
+                            <view>
+                                <text class="item-type">{{typeStr[item.agType]}}</text>
+                            </view>
+                        </view>
+                        <view class="felx-value">
+                            <view class="felx-value-1">
+                                <view class="value-block">
+                                    <text class="item-price-label">{{priceLabelStr}}</text>
+                                    <text class="item-price-value">{{item.shareValue}}</text>
+                                </view>
+                                <text class="line-h"/>
+                                <view class="value-part-2">
+                                    <view class="value-block">
+                                        <text class="item-nav-label">{{navLabelStr}} {{item.rq}}</text>
+                                        <text class="item-nav-value">{{item.nv}}</text>
+                                    </view>
+                                    <view class="arrow-right-view" hidden="true">
+                                        <image class="ico" src="/resource/ico/right.png"></image>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="felx-value-2">
+                                <view>
+                                    <text class="item-position-label">{{countLabelStr}}</text>
+                                    <text class="item-position-value">{{item.share}}</text>
+                                </view>
+                                <view>
+                                    <text class="item-move-label">投入成本</text>
+                                    <text class="item-move-value">{{item.totalCost}}</text>
+                                </view>
+                            </view>
+                            <view class="felx-value-2">
+                                <view>
+                                    <text class="item-position-label">浮动盈亏</text>
+                                    <text class="item-position-value">{{item.floatingProfit}}</text>
+                                </view>
+                                <view  wx:if="{{item.agType == 1}}">
+                                    <text class="item-move-label">成本价</text>
+                                    <text class="item-move-value">{{item.moveAvgPrice}}</text>
+                                </view>
+                                <view wx:if="{{item.agType != 1}}">
+                                    <text class="item-position-label">累计盈亏</text>
+                                    <text class="item-position-value">{{item.totalProfit}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-son" id="item-son-{{idx}}" hidden="{{item.son_hidden}}">
+                        <block wx:for="{{item.positionItemList}}" wx:for-item="sitem" wx:for-index='idx2'>
+                            <view class="sellers" bindtap="turnToDetail" data-idx1="{{index}}" data-idx2="{{idx2}}">
+                                <view class="seller-title">
+                                    <text class="seller-name">{{sitem.seller}}</text>
+                                </view>
+                                <view class="felx-value-1">
+                                    <view class="value-block">
+                                        <text class="item-price-label">{{priceLabelStr}}</text>
+                                        <text class="item-price-value">{{sitem.shareValue}}</text>
+                                    </view>
+                                    <text class="line-h"/>
+                                    <view class="value-block">
+                                        <text class="item-proportion-label">占比</text>
+                                        <text class="item-proportion-value">{{sitem.proportion*100}}%</text>
+                                    </view>
+                                    <image class="ico" src="/resource/ico/right.png"></image>
+                                </view>
+                                <view class="felx-value-2">
+                                    <text class="item-position-label">持仓份额</text>
+                                    <text class="item-position-value">{{sitem.share}}</text>
+                                </view>
+                                <view class="son-line"/>
+                                
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </block>
+            <view class="blank-space"></view>
+        </scroll-view>
+    </view>
+</view>

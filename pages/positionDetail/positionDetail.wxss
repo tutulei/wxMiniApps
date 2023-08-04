@@ -1,0 +1,102 @@
+/* pages/positionDetail/positionDetail.wxss */
+Page{
+    height: 100%;
+    width: 100%;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    background-color: #CCCCCC;
+}
+.ico{
+    width: 40rpx;
+    height: 40rpx;
+    margin: auto 20rpx auto 0;
+}
+.top-block{
+    height: 20%;
+    border: 1rpx solid whitesmoke;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.list-block{
+    background-color: white;
+    height: 65%;
+    margin-top: 5%;
+}
+.bottom-block{
+    display: flex;
+    height: 10%;
+}
+scroll-view{
+    height: 90%;
+}
+.list-title{
+    display: flex;
+    justify-content: space-between;
+}
+.title{
+    margin-top: 60rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.title>image{
+    margin-right: 40rpx;
+}
+.ag-name{
+    font-weight: 700;
+    margin-left: 20rpx;
+    font-size: 110%;
+}
+.import{
+    color: red;
+}
+.line-blocks,.line1{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.hold-block,.price-block,.nv-block,.share-block,.holdnav-block{
+    /* margin: auto; */
+    width: 30%;
+}
+.hold-label,.price-label,.nv-label,.share-label,.holdnav-label{
+    font-size: 80%;
+    text-align: center;
+    color: gray;
+}
+.hold-value,.price-value,.nv-value,.share-value,.holdnav-value{
+    font-weight: 700;
+    text-align: center;
+}
+.list-name{
+    padding: 10rpx;
+    border-bottom: 1rpx solid whitesmoke;
+}
+.seller-block{
+    margin: 0 0 20rpx 20rpx;
+    font-size: 90%;
+    color: #990033;
+}
+.date{
+    margin: 20rpx 0 0 10rpx;
+    color: #666699;
+    font-size: 90%;
+}
+.detail-item{
+    display: flex;
+    background-color: rgb(255, 210, 167);
+    margin: 20rpx 0;
+    flex-direction: column;
+}
+.line1{
+    margin: 10rpx 0 30rpx 0;
+    
+}
+.back{
+    margin: auto;
+    margin-top: 5%;
+}

@@ -1,0 +1,13 @@
+/* pages/recordDetail/recordDetail.wxss */
+Page{
+    width: 100%;
+}
+.container{
+    width: 100%;
+    background-color: #CCCCCC;
+}
+.block1,.block2,.block3,.block4{
+    background-color: white;
+}
+
+

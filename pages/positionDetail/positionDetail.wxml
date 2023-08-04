@@ -1,0 +1,49 @@
+<!--pages/positionDetail/positionDetail.wxml-->
+<view class="container">
+    <view class="top-block">
+        <view class="title">
+            <view class="ag-name">{{agName}}<text class="import">({{agCode}})</text></view>
+        </view>
+        <view class="line-blocks">
+            <view class="hold-block">
+                <view class="hold-label">{{holdLabel}}</view>
+                <view class="hold-value">{{holdValue}}</view>
+            </view>
+            <view class="price-block">
+                <view class="price-label">{{priceLabel}}</view>
+                <view class="price-value">{{priceValue}}</view>
+            </view>
+            <view class="nv-block">
+                <view class="nv-label">{{nvLabel}}</view>
+                <view class="nv-value">{{nvValue}}</view>
+            </view>
+        </view>
+        <view class="seller-block">{{sellerLabel}}:<text class="seller-value">{{seller}}</text></view>
+    </view>
+    <view class="list-block">
+        <view class="list-title">
+            <view class="list-name">{{listName}}</view>
+            <image class="ico" src="{{refreshSrc}}" bindtap="refreshList"></image>
+        </view>
+        <scroll-view scroll-y="true">
+            <block wx:for="{{positionDetailList}}" wx:for-item="item">
+                <view class="detail-item">
+                    <view class="date">日期：{{item.tradeDate}}</view>
+                    <view class="line1">
+                        <view class="share-block">
+                            <view class="share-label">{{shareLabel}}</view>
+                            <view class="share-value">{{item.holdShare}}</view>
+                        </view>
+                        <view class="holdnav-block">
+                            <view class="holdnav-label">{{holdnavLabel}}</view>
+                            <view class="holdnav-value">{{item.holdNav}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>  
+    </view>
+    <view class="bottom-block">
+        <button class="back" type="warn" bindtap="comeBack">{{buttonStr}}</button>
+    </view>
+</view>

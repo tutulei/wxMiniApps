@@ -1,0 +1,32 @@
+<!--Components/inputDlgPopup/inputdlg.wxml-->
+<view>
+    <view class="mask"></view>
+    <view class="inputDlg">
+        <!--drawer content-->
+        <view class="title">{{title}}</view>
+        <view class="dlg-content">
+            <view class="content-label">
+            <!-- 添加自定义的字符内容 -->
+                <view>{{content}}</view>
+                <view class="import">注意:修改授权邀请码后，原通过此邀请码绑定的用户会失去绑定</view>
+            </view>
+            <view class="content-input">
+            <!-- 添加自定义的输入框内容 -->
+                <view class="invitation-view">
+                    <text>邀请码:</text>
+                    <input class="input" type="text" placeholder="授权邀请码" bindinput="bindInputCode" value="{{inputAuthorizeCode}}"/>
+                    <image class="ico" src="{{refreshUrl}}" bindtap="refreshCode"></image>
+                </view>
+                <!-- <input class="input adminInput" type="text" bindinput="bindInputConfirm" value="{{inputConfirmStr}}" placeholder='请输入“确认”'/> -->
+            </view>
+        </view>
+        <view class="dlg-button">
+            <view class="cancel-btn" bindtap="closedlg">
+                <text>{{cancelTxt}}</text>
+            </view>
+            <view class="confirm-btn" bindtap="bindConfirm">
+                <text>{{confirmTxt}}</text>
+            </view>
+        </view>
+    </view>
+</view>

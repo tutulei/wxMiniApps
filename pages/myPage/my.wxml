@@ -1,0 +1,43 @@
+<!--pages/myPage/my.wxml-->
+<page-meta>
+    <navigation-bar
+        title="{{nbTitle}}"
+        loading="{{nbLoading}}"
+        front-color="{{nbFrontColor}}"
+        background-color="{{nbBackgroundColor}}"
+        color-animation-duration="2000"
+        color-animation-timing-func="easeIn"
+    />
+</page-meta>
+<view hidden="{{inputDlghidden}}">
+        <intputdlg2  bind:hiddenInputDlg="hiddenInputDlg" title="修改邀请码" fundAcc="{{dlgFundAcc}}" inputAuthorizeCode="{{dlgAuthorizeCode}}"/>
+</view>
+
+<view class="container">
+    <view class="wxinfo">
+        <view class="userinfo-avatar">
+            <image bindtap="bindViewTap" class="avatar-image" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        </view>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+    <view class="account-info">
+        <view class="realname-view">
+            <text class="realname-label">真实姓名：</text>
+            <text class="realname-str">{{realName}}</text>
+        </view>
+        <view class="fund-view">
+            <text class="fund-label">基金账号：</text>
+            <text class="fund-str">{{fundId}}</text>
+        </view>
+        <view class="invitation-view" hidden="{{!isMaster}}">
+            <view>
+                <text class="invitation-label">当前授权邀请码：</text>
+                <text class="invitation-str">{{invitationCode}}</text>
+            </view>
+            <view class="invitation-button" bindtap="modifyClick"  >管理</view>
+        </view>
+    </view>
+    <view>
+        <button class="exitButton" type="warn" bindtap="exitPage">退出</button>
+    </view>
+</view>
